@@ -267,21 +267,18 @@ Provide:
                 try:
 
                     response = client.models.generate_content(
-                    model="gemini-2.0-flash",
-                    contents=prompt
-                )
-            
-                st.write(response.text)
-            
-            except Exception as e:
-            
-                st.error("Gemini AI connection failed.")
-                st.write(e)
-                )
+                        model="gemini-2.0-flash",
+                        contents=prompt
+                    )
 
-            st.success("Feedback Generated")
+                    st.success("Feedback Generated")
 
-            st.markdown(response.text)
+                    st.markdown(response.text)
+
+                except Exception as e:
+
+                    st.error("Gemini AI connection failed.")
+                    st.write(e)
 
 # -----------------------------------
 # ABOUT
