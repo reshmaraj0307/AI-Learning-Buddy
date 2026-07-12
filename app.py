@@ -14,9 +14,15 @@ with open("style.css", "r", encoding="utf-8") as f:
 # -----------------------------------
 # GEMINI CLIENT
 # -----------------------------------
-client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
-)
+@st.cache_resource
+def get_client():
+
+    return genai.Client(
+        api_key=st.secrets["GEMINI_API_KEY"]
+    )
+
+
+client = get_client()
 
 # -----------------------------------
 # CUSTOM CSS
@@ -258,9 +264,19 @@ Provide:
 
             with st.spinner("Evaluating..."):
 
-                response = client.models.generate_content(
-                    model="gemini-flash-latest",
+                try:
+
+                    response = client.models.generate_content(
+                    model="gemini-2.0-flash",
                     contents=prompt
+                )
+            
+                st.write(response.text)
+            
+            except Exception as e:
+            
+                st.error("Gemini AI connection failed.")
+                st.write(e)
                 )
 
             st.success("Feedback Generated")
