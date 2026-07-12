@@ -15,7 +15,7 @@ with open("style.css", "r", encoding="utf-8") as f:
 # GEMINI CLIENT
 # -----------------------------------
 client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
+    api_key=st.secrets["AQ.Ab8RN6J0vur7DcL2Y_N0RwNj7zXIQvNOOyxFpjn2FP7V-uNVvw"]
 )
 
 # -----------------------------------
