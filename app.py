@@ -169,7 +169,7 @@ Teach the following Python topic:
             with st.spinner("PyBuddy is teaching..."):
 
                 response = client.models.generate_content(
-                    model="gemini-3.1-flash-lite",
+                    model="gemini-flash-latest",
                     contents=prompt
                 )
 
