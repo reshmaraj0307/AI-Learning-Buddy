@@ -22,7 +22,9 @@ def get_client():
     )
 
 
-client = get_client()
+client = genai.Client(
+    api_key=st.secrets["GEMINI_API_KEY"]
+)
 
 # -----------------------------------
 # CUSTOM CSS
