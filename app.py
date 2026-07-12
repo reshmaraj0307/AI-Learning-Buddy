@@ -22,10 +22,7 @@ def get_client():
     )
 
 
-client = genai.Client(
-    api_key=st.secrets["GEMINI_API_KEY"]
-)
-
+client = get_client()
 # -----------------------------------
 # CUSTOM CSS
 # -----------------------------------
@@ -172,7 +169,7 @@ Teach the following Python topic:
             with st.spinner("PyBuddy is teaching..."):
 
                 response = client.models.generate_content(
-                    model="gemini-flash-latest",
+                    model="gemini-3.1-flash-lite",
                     contents=prompt
                 )
 
@@ -214,7 +211,7 @@ Requirements:
             with st.spinner("Generating Quiz..."):
 
                 response = client.models.generate_content(
-                    model="gemini-flash-latest",
+                    model="gemini-3.1-flash-lite",
                     contents=prompt
                 )
 
@@ -269,7 +266,7 @@ Provide:
                 try:
 
                     response = client.models.generate_content(
-                        model="gemini-2.0-flash",
+                        model="gemini-3.1-flash-lite",
                         contents=prompt
                     )
 
